@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:untitled/providers/course_provider.dart';
 import 'package:untitled/providers/event_provider.dart';
 import 'package:untitled/screens/placeholder_screen.dart';
 import 'package:untitled/themes/colors.dart';
@@ -24,8 +25,10 @@ class _HeaderState extends State<Header> {
     final keyword = _searchController.text;
     final studentProvider = Provider.of<StudentProvider>(context, listen: false);
     final eventProvider = Provider.of<EventProvider>(context, listen: false);
+    final courseProvider = Provider.of<CourseProvider>(context, listen: false);
     studentProvider.searchStudentsByName(keyword);
     eventProvider.searchEventByName(keyword);
+    courseProvider.searchCoursesByName(keyword);
   }
 
   @override

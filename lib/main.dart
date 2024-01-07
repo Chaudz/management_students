@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:untitled/providers/course_provider.dart';
 import 'package:untitled/providers/event_provider.dart';
 import 'package:untitled/providers/student_provider.dart';
 import 'package:untitled/router/router.dart';
@@ -30,6 +31,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider(
           create: (context) => EventProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CourseProvider(),
         )
       ],
       child: MaterialApp(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/layouts/header.dart';
+import 'package:untitled/screens/course_registration_sceen.dart';
 import 'package:untitled/screens/create_student_if_screen.dart';
+import 'package:untitled/widgets/course_list_widget.dart';
 import 'package:untitled/widgets/event_list_widget.dart';
 import 'package:untitled/widgets/student_list_widget.dart';
 import '../providers/student_provider.dart';
@@ -39,12 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
       Expanded(
         child: StudentList(),
       ),
-      Text(
-        'Đang phát triển...',
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-        ),
+      Expanded(
+        child: CourseList(),
       ),
       Text(
         'Đang phát triển...',
@@ -99,11 +97,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 50,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CreateStudentInfoScreen(),
-                            ));
+                        if (isActiveBtn == 0) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CreateStudentInfoScreen(),
+                              ));
+                        } else if (isActiveBtn == 1) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CourseRegistrationScreen(),
+                              ));
+                        }
                       },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(
